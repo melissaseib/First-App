@@ -54,14 +54,9 @@ class App extends Component {
             </div>
           </Col>
           <Col xs={12} md={6} lg={3} className="formText">
-            <h1
-              style={{
-                textAlign: "center",
-                textDecoration: "underline"
-              }}
-            >
-              Contact Me!
-            </h1>
+            <div className="contact">
+              <h1>Contact Me!</h1>
+            </div>
             <br />
             <p>Name:</p>
             <FormControl placeholder="Name" />
