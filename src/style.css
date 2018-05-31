@@ -1,0 +1,26 @@
+@media (max-width: 800px) {
+  padding-left: 50pt;
+  padding-right: 50pt;
+}
+.Profilepic {
+  width: 300px;
+}
+
+.Biotext {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+
+  padding-top: 50pt;
+  height: 100%;
+}
+
+.biotextcenter {
+  vertical-align: middle;
+}
+
+.formText {
+  padding-top: 50pt;
+  padding-left: 15pt;
+  padding-right: 15pt;
+}
