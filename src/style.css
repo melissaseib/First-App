@@ -10,17 +10,24 @@
   text-align: center;
   margin-left: auto;
   margin-right: auto;
-
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
   padding-top: 50pt;
   height: 100%;
 }
 
 .biotextcenter {
   vertical-align: middle;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  border-style: dashed;
+  border-color: purple;
 }
 
 .formText {
   padding-top: 50pt;
   padding-left: 15pt;
   padding-right: 15pt;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
 }
