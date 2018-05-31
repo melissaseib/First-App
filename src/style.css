@@ -34,5 +34,5 @@
 
 .contact {
   text-align: center;
-  text-decoration: underline;
+  border-bottom: 2px solid purple;
 }
