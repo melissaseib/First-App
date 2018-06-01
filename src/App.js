@@ -15,7 +15,9 @@ class App extends Component {
     this.state = {
       name: "",
       email: "",
-      message: ""
+      message: "",
+      backgroundImage:
+        "url('http://notgoaway.com/wp-content/uploads/2017/07/Texture-Background-70.jpg')"
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -77,11 +79,14 @@ class App extends Component {
       <div
         style={{
           width: "100vw",
-          height: "100%"
+          height: "100%",
+          backgroundImage: this.state.backgroundImage,
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "100vw 100vh "
         }}
       >
         <Row className="wrap" />
-        <Row>
+        <Row className="mainrow">
           <Col xs={12} md={6} lg={3} className="firstcol">
             <div className="image">
               <ProfileImage

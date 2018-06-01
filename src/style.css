@@ -1,12 +1,23 @@
 .wrap {
   height: 10vh;
-  background-color: purple;
+  /* background-color: purple; */
 }
 
 p2 {
   color: purple;
 }
 
+.mainrow {
+  /* background-color: fade(purple, 50%); */
+
+  /* background: #ccc;
+  filter: alpha(opacity=60);
+  /* IE */
+  /* -moz-opacity: 0.6; */
+  /* Mozilla */
+  /* opacity: 0.6;
+  opacity: 0.2; */
+}
 .firstcol {
   height: 80vh;
   display: table;
@@ -41,6 +52,7 @@ p2 {
   border-style: dashed;
   border-color: purple;
   box-shadow: 5px 5px 2px plum;
+  background-color: rgba(233, 231, 240, 0.87);
 }
 
 .ProfileImage {
