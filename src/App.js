@@ -17,7 +17,7 @@ class App extends Component {
       email: "",
       message: "",
       backgroundImage:
-        "url('http://notgoaway.com/wp-content/uploads/2017/07/Texture-Background-70.jpg')"
+        "url('https://media.istockphoto.com/photos/graph-paper-picture-id452625813?k=6&m=452625813&s=612x612&w=0&h=I_5rR_vMva5-ONoXY6rmHc6ERUFvRE7iv_yC0zPI7rQ=')"
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -77,12 +77,16 @@ class App extends Component {
 
     return (
       <div
+        className="outside"
         style={{
           width: "100vw",
           height: "100%",
+          position: "fixed",
+          overflow: "scroll",
           backgroundImage: this.state.backgroundImage,
           backgroundRepeat: "no-repeat",
-          backgroundSize: "100vw 100vh "
+          backgroundSize: "cover",
+          backgroundAttachment: "scroll"
         }}
       >
         <Row className="wrap" />
