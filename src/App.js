@@ -4,10 +4,9 @@ import React, { Component } from "react";
 import "./App.css";
 import { Row, Col, Image, Button, FormControl } from "react-bootstrap";
 import "./style.css";
-import logo from "./logo.svg";
-import pic from "./pic.jpg";
-import newest from "./newest.png";
-import { ProfileImage } from "./components"; //alternative to css
+
+import AvatarPicture from "./AvatarPicture.png";
+import { MelsWebpage } from "./ComponentsFolder/MelsWebpage";
 
 class App extends Component {
   constructor(props) {
@@ -19,8 +18,6 @@ class App extends Component {
       backgroundImage:
         "url('https://media.istockphoto.com/photos/graph-paper-picture-id452625813?k=6&m=452625813&s=612x612&w=0&h=I_5rR_vMva5-ONoXY6rmHc6ERUFvRE7iv_yC0zPI7rQ=')"
     };
-
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange = e => {
@@ -29,7 +26,7 @@ class App extends Component {
     this.setState({ [id]: value });
   };
 
-  async handleSubmit() {
+  handleSubmit = async () => {
     // alert('name: ' + this.state.name + ' ' + 'email: ' + this.state.email + ' ' + 'message: ' + this.state.message);
 
     this.setState({ name: "", email: "", message: "" });
@@ -43,140 +40,39 @@ class App extends Component {
       });
 
       res = await res.json();
-      console.log(res);
 
       const status = res.status;
 
-      if (status == 400) {
-        alert(
-          "Not Successful, Invalid User Request Error (Not all fields filled)"
-        );
+      if (status > 200) {
+        if (status == 400) {
+          alert(
+            "Not successful, invalid user request error (Not all fields filled)"
+          );
+        } else {
+          alert("Not succesful, message not sent");
+        }
       } else {
-        alert("Form Sent Successfully!");
+        alert("Form sent successfully!");
       }
     } catch (err) {
       console.error(err);
+      alert("Not successful, message not sent");
     }
 
     this.setState({ name: "", email: "", message: "" });
-  }
+  };
 
   render() {
-    document.addEventListener("keydown", event => {
-      console.log(event.which);
-
-      if (
-        event.which == 13 &&
-        this.state.name !== "" &&
-        this.state.email !== "" &&
-        this.state.message !== ""
-      ) {
-        this.handleSubmit();
-      }
-    });
-
     return (
-      <div
-        className="outside"
-        style={{
-          width: "100vw",
-          height: "100%",
-          position: "fixed",
-          overflow: "scroll",
-          backgroundImage: this.state.backgroundImage,
-          backgroundRepeat: "no-repeat",
-          backgroundSize: "cover",
-          backgroundAttachment: "scroll"
-        }}
-      >
-        <Row className="wrap" />
-        <Row className="mainrow">
-          <Col xs={12} md={6} lg={3} className="firstcol">
-            <div className="image">
-              <ProfileImage
-                src={newest}
-                class="img-fluid"
-                alt="Responsive image"
-                style={{
-                  borderStyle: "solid",
-                  borderColor: "purple",
-                  borderWidth: "2pt",
-                  boxShadow: "0 4px 8px 0 plum, 0 6px 20px 0 plum"
-                }}
-              />
-            </div>
-          </Col>
-
-          <Col xs={12} md={6} lg={3} className="biotextCol">
-            <div className="biotexttext">
-              <div className="justwords">
-                <h1>Melissa Seib</h1>
-                <p>
-                  <br /> mss@quitasls.com
-                  <br /> (978)-935-6096
-                </p>
-              </div>
-            </div>
-          </Col>
-
-          <Col xs={12} md={6} lg={3} className="formTextcol">
-            <div className="contacttext">
-              <div className="contactme">
-                <h1>Contact Me!</h1>
-              </div>
-
-              <br />
-              <form
-                onChange={e => {
-                  //console.log(event.which);
-                  //if keycode == 13
-                  //if which == 13this.handleSubmit(e);
-                }}
-              >
-                <p>
-                  Name<p2>*</p2>:
-                </p>
-                <FormControl
-                  id="name"
-                  type="text"
-                  placeholder="Name"
-                  value={this.state.name}
-                  onChange={this.handleChange}
-                />
-                <br />
-                <p>
-                  Email<p2>*</p2>:
-                </p>
-                <FormControl
-                  id="email"
-                  type="email"
-                  placeholder="Email"
-                  value={this.state.email}
-                  onChange={this.handleChange}
-                />
-                <br />
-                <p>
-                  Message<p2>*</p2>:
-                </p>
-                <FormControl
-                  id="message"
-                  componentClass="textarea"
-                  placeholder="Message"
-                  value={this.state.message}
-                  onChange={this.handleChange}
-                />
-                <br />
-                <div className="button">
-                  <Button onClick={this.handleSubmit} block>
-                    Submit{" "}
-                  </Button>
-                </div>
-              </form>
-            </div>
-          </Col>
-        </Row>
-        <Row className="wrap" />
-      </div>
+      <MelsWebpage
+        backgroundimage={this.state.backgroundImage}
+        profpicture={AvatarPicture}
+        formname1={this.state.name}
+        handlechange1={this.handleChange}
+        formemail1={this.state.email}
+        formmessage1={this.state.message}
+        handlesubmit1={this.handleSubmit}
+      />
     );
   }
 }

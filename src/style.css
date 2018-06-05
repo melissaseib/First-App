@@ -1,70 +1,7 @@
-@media (max-width: 700) {
-  .outside {
-    background-image: none;
-  }
-}
-
-.wrap {
-  height: 10vh;
-  /* background-color: purple; */
-}
-
-p2 {
-  color: purple;
-}
-.firstcol {
-  height: 80vh;
-  display: table;
-}
-.image {
-  margin-left: auto;
-  margin-right: auto;
-  display: table-cell;
-  vertical-align: middle;
-  border-radius: 50%;
-  padding: 28pt;
-  height: 50vh;
-}
-
-.biotextCol {
-  text-align: center;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
-  padding: 20pt;
-  height: 80vh;
-  display: table;
-}
-
-.biotexttext {
-  display: table-cell;
-  vertical-align: middle;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
-  vertical-align: middle;
-}
-.justwords {
-  border-style: dashed;
-  border-color: purple;
-  box-shadow: 5px 5px 2px plum;
-  background-color: rgba(233, 231, 240, 0.87);
-}
-
-.ProfileImage {
-  border-style: dashed;
-  border-collapse: purple;
-}
-
 .formTextcol {
   padding: 20pt;
   display: table;
   height: 80vh;
-}
-
-.contacttext {
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
-  display: table-cell;
-  vertical-align: middle;
 }
 
 .contactme {
@@ -72,11 +9,6 @@ p2 {
   border-bottom: 2px solid purple;
   text-shadow: 1px 1px plum;
 }
-
-/* .button {
-  border: 2px solid purple;
-  background-color: solid purple;
-} */
 
 .btn {
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
@@ -89,10 +21,14 @@ p2 {
   box-shadow: 0 2px 6px 0 plum, 0 3px 10px 0 plum;
 }
 
+.btn:hover {
+  background-color: plum;
+  border: solid purple;
+}
+
+/* For different screen sizes */
+
 @media screen and (max-width: 992px) {
-  /* .outside {
-    background-size: contain;
-  } */
   .firstcol {
     height: auto;
     text-align: center;
@@ -139,18 +75,3 @@ p2 {
     border-bottom: 2px solid purple;
   }
 }
-
-/* @media screen and (max-width: 1030) {
-  .firstcol {
-    width: 100%;
-    height: auto;
-  }
-  .biotextCol {
-    width: 50vw;
-    height: 25vh;
-  }
-  .formTextcol {
-    width: 50vw;
-    height: 25vh;
-  }
-} */
