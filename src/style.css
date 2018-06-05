@@ -1,26 +1,77 @@
-@media (max-width: 800px) {
-  padding-left: 50pt;
-  padding-right: 50pt;
-}
-.Profilepic {
-  width: 300px;
+.formTextcol {
+  padding: 20pt;
+  display: table;
+  height: 80vh;
 }
 
-.Biotext {
+.contactme {
   text-align: center;
-  margin-left: auto;
-  margin-right: auto;
-
-  padding-top: 50pt;
-  height: 100%;
+  border-bottom: 2px solid purple;
+  text-shadow: 1px 1px plum;
 }
 
-.biotextcenter {
-  vertical-align: middle;
+.btn {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: solid purple;
+  border: 2pt solid purple;
+  box-shadow: 0 2px 6px 0 plum, 0 3px 10px 0 plum;
 }
 
-.formText {
-  padding-top: 50pt;
-  padding-left: 15pt;
-  padding-right: 15pt;
+.btn:hover {
+  background-color: plum;
+  border: solid purple;
+}
+
+/* For different screen sizes */
+
+@media screen and (max-width: 992px) {
+  .firstcol {
+    height: auto;
+    text-align: center;
+  }
+  .image {
+    border-color: red;
+    text-align: center;
+    padding: 15pt;
+  }
+
+  .biotextCol {
+    text-align: center;
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+      "Lucida Sans", Arial, sans-serif;
+    height: auto;
+  }
+
+  .biotexttext {
+    vertical-align: middle;
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+      "Lucida Sans", Arial, sans-serif;
+    text-align: center;
+    margin: 15pt;
+  }
+  .justwords {
+    border-style: dashed;
+    border-color: purple;
+    text-align: center;
+  }
+
+  .formTextcol {
+    height: auto;
+    width: 100%;
+  }
+
+  .contacttext {
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+      "Lucida Sans", Arial, sans-serif;
+    margin: 15pt;
+  }
+
+  .contactme {
+    text-align: center;
+    border-bottom: 2px solid purple;
+  }
 }

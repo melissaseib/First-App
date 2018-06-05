@@ -1,83 +1,78 @@
+//original
+
 import React, { Component } from "react";
 import "./App.css";
 import { Row, Col, Image, Button, FormControl } from "react-bootstrap";
 import "./style.css";
-import logo from "./logo.svg";
-import pic from "./pic.jpg";
-import { ProfileImage } from "./components"; //alternative to css
+
+import AvatarPicture from "./AvatarPicture.png";
+import { MelsWebpage } from "./ComponentsFolder/MelsWebpage";
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: "",
+      email: "",
+      message: "",
+      backgroundImage:
+        "url('https://media.istockphoto.com/photos/graph-paper-picture-id452625813?k=6&m=452625813&s=612x612&w=0&h=I_5rR_vMva5-ONoXY6rmHc6ERUFvRE7iv_yC0zPI7rQ=')"
+    };
+  }
+
+  handleChange = e => {
+    let id = e.target.id;
+    let value = e.target.value;
+    this.setState({ [id]: value });
+  };
+
+  handleSubmit = async () => {
+    // alert('name: ' + this.state.name + ' ' + 'email: ' + this.state.email + ' ' + 'message: ' + this.state.message);
+
+    this.setState({ name: "", email: "", message: "" });
+    try {
+      let res = await fetch("http://localhost:8080/contact", {
+        method: "POST",
+        headers: new Headers({
+          "Content-Type": "application/json"
+        }),
+        body: JSON.stringify(this.state)
+      });
+
+      res = await res.json();
+
+      const status = res.status;
+
+      if (status > 200) {
+        if (status == 400) {
+          alert(
+            "Not successful, invalid user request error (Not all fields filled)"
+          );
+        } else {
+          alert("Not succesful, message not sent");
+        }
+      } else {
+        alert("Form sent successfully!");
+      }
+    } catch (err) {
+      console.error(err);
+      alert("Not successful, message not sent");
+    }
+
+    this.setState({ name: "", email: "", message: "" });
+  };
+
   render() {
     return (
-      <div
-        style={{
-          marginLeft: "auto",
-          marginRight: "auto",
-          height: "100%"
-        }}
-      >
-        <Row>
-          <Col
-            xs={12}
-            md={6}
-            lg={3}
-            style={{
-              paddingLeft: "50px",
-              paddingTop: "50pt",
-              display: "tableCell",
-              verticalAlign: "middle",
-              textAlign: "center"
-            }}
-          >
-            <ProfileImage src={pic} />
-          </Col>
-          <Col
-            xs={12}
-            md={6}
-            lg={3}
-            className="Biotext"
-            //style={{ display: "table-cell";  }}
-            //text-align: center;
-            //color: blue;
-            //margin-left: auto;
-            //margin-right: auto;
-            //display: table-cell;
-            //vertical-align: middle;
-          >
-            <div className="biotextcenter">
-              <h1>Melissa Seib</h1>
-              <p>
-                <br /> mss@quitasls.com
-                <br /> (978)-935-6096
-              </p>
-            </div>
-          </Col>
-          <Col xs={12} md={6} lg={3} className="formText">
-            <h1
-              style={{
-                textAlign: "center",
-                textDecoration: "underline"
-              }}
-            >
-              Contact Me!
-            </h1>
-            <br />
-            <p>Name:</p>
-            <FormControl placeholder="Name" />
-            <br />
-            <p>Email:</p>
-            <FormControl placeholder="Email" />
-            <br />
-            <p>Message:</p>
-            <FormControl placeholder="Message" />
-            <br />
-            <Button onClick={() => this.setState({})} bsStyle="primary" block>
-              {" "}
-              Submit{" "}
-            </Button>
-          </Col>
-        </Row>
-      </div>
+      <MelsWebpage
+        backgroundimage={this.state.backgroundImage}
+        profpicture={AvatarPicture}
+        formname1={this.state.name}
+        handlechange1={this.handleChange}
+        formemail1={this.state.email}
+        formmessage1={this.state.message}
+        handlesubmit1={this.handleSubmit}
+      />
     );
   }
 }
