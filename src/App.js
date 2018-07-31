@@ -69,9 +69,9 @@ class App extends Component {
         profpicture={AvatarPicture}
         formname1={this.state.name}
         handlechange1={this.handleChange}
-        formemail1={this.state.email}
-        formmessage1={this.state.message}
-        handlesubmit1={this.handleSubmit}
+        formEmail1={this.state.email}
+        formMessage1={this.state.message}
+        handleSubmit1={this.handleSubmit}
       />
     );
   }
